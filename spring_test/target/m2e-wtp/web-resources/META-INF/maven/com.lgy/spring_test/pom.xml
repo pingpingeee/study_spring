@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.lgy</groupId>
 	<artifactId>spring_test</artifactId>
-	<name>sprfing_test</name>
+	<name>spring_test</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>

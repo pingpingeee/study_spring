@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 3-1 -->
+	<bean id="circle" class="spring_ex_3_1.Circle"></bean>
+	<bean id="myCircle" class="spring_ex_3_1.MyCircle">
+
+		<property name="circle">
+			<ref bean="circle" />
+		</property>
+
+		<!-- <property name="circle" ></property> -->
+		<property name="radius" value="10"></property>
+	</bean>
+
+
+	<!-- 3-2 -->
+<!-- 	<bean id="rectangle" class="spring_ex_3_2.Rectangle"></bean> -->
+<!-- 	<bean id="myrectangle" class="spring_ex_3_2.MyRectangle"> -->
+
+<!-- 		<property name="rectangle"> -->
+<!-- 			<ref bean="rectangle" /> -->
+<!-- 		</property> -->
+
+<!-- 		<property name="w" value="4"></property> -->
+<!-- 		<property name="h" value="6"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 3-3 -->
+	<bean id="season" class="spring_ex_3_3.Season"></bean>
+	<bean id="mySeason" class="spring_ex_3_3.MySeason">
+
+		<property name="season">
+			<ref bean="season" />
+		</property>
+
+		<property name="num" value="9"></property>
+	</bean>
+	<!-- 3-4 -->
+	<bean id="won2Dollar" class="spring_ex_3_4.Won2Dollar"></bean>
+	<bean id="myWon2Dollar" class="spring_ex_3_4.MyWon2Dollar">
+
+		<property name="won2Dollar">
+			<ref bean="won2Dollar" />
+		</property>
+
+		<property name="num" value="3600"></property>
+	</bean>
+	<!-- 3-5 -->
+	<bean id="three" class="spring_ex_3_5.Three"></bean>
+	<bean id="myThree" class="spring_ex_3_5.MyThree">
+
+		<property name="three">
+			<ref bean="three" />
+		</property>
+
+		<property name="num" value="129"></property>
+	</bean>
+	<!-- 3-6 -->
+	<bean id="divAndRemains" class="spring_ex_3_6.DivAndRemains"></bean>
+	<bean id="myDivAndRemains" class="spring_ex_3_6.MyDivAndRemains">
+
+		<property name="divAndRemains">
+			<ref bean="divAndRemains" />
+		</property>
+
+		<property name="num" value="77"></property>
+	</bean>
+	<!-- 3-7 -->
+	<bean id="rectangle" class="spring_ex_3_7.Rectangle"></bean>
+	<bean id="myRectangle" class="spring_ex_3_7.MyRectangle">
+
+		<property name="rectangle">
+			<ref bean="rectangle" />
+		</property>
+
+		<property name="x" value="150"></property>
+		<property name="y" value="150"></property>
+	</bean>
+	<!-- 3-8 -->
+	<bean id="median" class="spring_ex_3_8.Median"></bean>
+	<bean id="myMedian" class="spring_ex_3_8.MyMedian">
+
+		<property name="median">
+			<ref bean="median" />
+		</property>
+
+		<property name="num1" value="20"></property>
+		<property name="num2" value="100"></property>
+		<property name="num3" value="33"></property>
+	</bean>
+	<!-- 3-9 -->
+	<bean id="evenNumber" class="spring_ex_3_9.EvenNumber"></bean>
+	<bean id="meEvenNumber" class="spring_ex_3_9.MyEvenNumber">
+
+		<property name="evenNumber">
+			<ref bean="evenNumber" />
+		</property>
+
+		<property name="num" value="10"></property>
+	</bean>
+	<!-- 3-10 -->
+	<bean id="capital" class="spring_ex_3_10.Capital"></bean>
+	<bean id="myCapital" class="spring_ex_3_10.MyCapital">
+
+		<property name="capital">
+			<ref bean="capital" />
+		</property>
+
+		<property name="c" value="F"></property>
+	</bean>
+</beans>

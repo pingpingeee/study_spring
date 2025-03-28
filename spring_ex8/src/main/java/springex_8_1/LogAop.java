@@ -9,7 +9,7 @@ public class LogAop {
 
 		System.out.println("@@@### start===>" + joinPoint.getSignature().toShortString());
 		try {
-			joinPoint.proceed();
+			obj = joinPoint.proceed();
 		} catch (Throwable e) {
 			e.printStackTrace();
 		} finally {

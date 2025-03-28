@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 6-4 -->
+	<bean id="animation3" class="spring_ex_6_4.Animation">
+		<constructor-arg value="블리치" />
+		<property name="year">
+			<value>2004</value>
+		</property>
+		<property name="character">
+			<list>
+				<value>이치고</value>
+				<value>오리히메</value>
+				<value>차드</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 6-5 -->
+	<bean id="nasdaq3" class="spring_ex_6_5.Nasdaq">
+		<constructor-arg value="Nvidia"></constructor-arg>
+		<property name="capRank">
+			<value>7</value>
+		</property>
+		<property name="product">
+			<list>
+				<value>RTX 3080</value>
+				<value>RTX 2080</value>
+			</list>
+		</property>
+	</bean>
+</beans>

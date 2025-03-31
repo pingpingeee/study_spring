@@ -22,15 +22,12 @@
 		in the /WEB-INF/views directory -->
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<!-- /WEB-INF/views/ + home + .jsp -->
-		<!-- prefix + return 값 + suffix -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<!-- com.lgy.spring_10_1 패키지에 @Controller를 찾아간다(스캔) : 자바 파일 여러개에서 찾음 -->
 	<context:component-scan
-		base-package="com.lgy.spring_10_1" />
+		base-package="com.lgy.spring_11_1" />
 
 
 

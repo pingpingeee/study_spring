@@ -10,30 +10,39 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
+//@RequestMapping("/board")
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+	@RequestMapping("/shopping")
+	public String shopping() {
+		return "shopping";
 	}
 	
+	@RequestMapping("/view")
+//	public String title(Model model) {
+	public ModelAndView title() {
+		ModelAndView mv = new ModelAndView();
+		// 속성에 값 추가
+		mv.addObject("id", "gildong");
+		//  뷰 설정 (model 객체와 차이점)
+		mv.setViewName("board/view");
+		
+		return mv;
+	}
+
+//	@RequestMapping("/view")
+//	@RequestMapping("board/view") // /board/view
+//	public String name() {
+//		return "view";
+//		return "board/view";
+//	}
+
+//	@RequestMapping("board/view")
+//	public String title(Model model) {
+//		model.addAttribute("id", "test");
+//		return "board/view";
+//	}
 }

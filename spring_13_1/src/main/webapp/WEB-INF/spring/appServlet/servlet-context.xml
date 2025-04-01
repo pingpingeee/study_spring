@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.lgy.spring_13_" />
+	<context:component-scan base-package="com.lgy.spring_13_1" />
 	
 	
 	

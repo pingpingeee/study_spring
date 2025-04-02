@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 필드 전체를 참조하는 생성자
 @Data // 여러가지 메소드를 포함
-public class SamplVO {
+public class SampleVO {
 	private int mno;
 	private String firstName;
 	private String lastName;	

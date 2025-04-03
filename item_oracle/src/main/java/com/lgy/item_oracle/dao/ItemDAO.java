@@ -1,0 +1,96 @@
+package com.lgy.item_oracle.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.lgy.item_oracle.dto.ItemDTO;
+
+public class ItemDAO {
+	DataSource dataSource;
+
+	public ItemDAO() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource)ctx.lookup("java:comp/env/jdbc/oracle");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void write(String name, String price, String description) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "insert into tbl_item (name, price, description) values(?,?,?)";
+		ArrayList<ItemDAO> dtos = new ArrayList<ItemDAO>();
+
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, price);
+			pstmt.setString(3, description);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
+	public ArrayList<ItemDTO> contentView() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select name, price, description from tbl_item";
+
+		ArrayList<ItemDTO> dtos = new ArrayList<ItemDTO>();
+
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				String name = rs.getString("name");
+				int price = rs.getInt("price");
+				String description = rs.getString("description");
+
+				ItemDTO dto = new ItemDTO(name, price, description);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return dtos;
+	}
+}

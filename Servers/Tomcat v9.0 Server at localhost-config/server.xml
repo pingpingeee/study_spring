@@ -109,13 +109,9 @@
 
 
 
-				<Context docBase="item_oracle" path="/item_oracle" reloadable="true" source="org.eclipse.jst.jee.server:item_oracle">
-					<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="scott"/>
-				</Context>
-				<Context docBase="member_oracle" path="/member_oracle" reloadable="true" source="org.eclipse.jst.jee.server:member_oracle">
-					<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="scott"/>
-				</Context>
-			<Context docBase="board_jdbc_mysql" path="/board_jdbc_mysql" reloadable="true" source="org.eclipse.jst.jee.server:board_jdbc_mysql"/><Context docBase="item_jdbc_oracle" path="/item_jdbc_oracle" reloadable="true" source="org.eclipse.jst.jee.server:item_jdbc_oracle"/></Host>
+				
+				
+			<Context docBase="member_jdbc_oracle" path="/member_jdbc_oracle" reloadable="true" source="org.eclipse.jst.jee.server:member_jdbc_oracle"/></Host>
 		</Engine>
 	</Service>
 </Server>

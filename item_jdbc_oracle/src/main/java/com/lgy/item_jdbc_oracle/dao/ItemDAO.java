@@ -42,8 +42,8 @@ public class ItemDAO {
 
 	public ArrayList<ItemDTO> contentView() {
 		System.out.println("test DAO");
-//		String sql="select name, price, description from tbl_item";
-//		return (ArrayList<ItemDTO>) template.query(sql, new BeanPropertyRowMapper(ItemDTO.class));
-		return (ArrayList<ItemDTO>) template.query("select name, price, description from tbl_item", new BeanPropertyRowMapper(ItemDTO.class));
+		String sql="select name, price, description from tbl_item";
+		return (ArrayList<ItemDTO>) template.query(sql, new BeanPropertyRowMapper(ItemDTO.class));
+//		return (ArrayList<ItemDTO>) template.query("select name, price, description from tbl_item", new BeanPropertyRowMapper(ItemDTO.class));
 	}
 }

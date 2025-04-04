@@ -38,6 +38,7 @@
 		<beans:property name="username" value="scott"></beans:property>
 		<beans:property name="password" value="tiger"></beans:property>
 	</beans:bean>
+
 	<!-- JdbcTemplate 객체에 dataSource 객체를 포함 -->
 	<beans:bean name="template"
 		class="org.springframework.jdbc.core.JdbcTemplate">

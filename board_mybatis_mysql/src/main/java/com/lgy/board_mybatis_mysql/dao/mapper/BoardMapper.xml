@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgy.board_mybatis_mysql.dao.BoardDAO"> <!-- 여기에 쓰는 클래스(DAO)설정 -->
+
+	<!-- id가 추상메소드를 찾아감 -->
+	<!-- resultType : 사용할 반환타입 -->
+	<select id="list"
+		resultType="com.lgy.board_mybatis_mysql.dto.BoardDTO">
+		select boardNo, boardName, boardTitle, boardContent,
+		boardDate, boardHit
+		from tbl_board
+	</select>
+
+	<insert id="write">
+		insert into tbl_board(boardName, boardTitle,
+		boardContent) values(#{param1}, #{param2}, #{param3})
+	</insert>
+
+	<select id="contentView"
+		resultType="com.lgy.board_mybatis_mysql.dto.BoardDTO">
+		select boardNo, boardName, boardTitle, boardContent,
+		boardDate, boardHit
+		from tbl_board where boardNo=#{param1}
+	</select>
+
+	<!-- void 일 경우 resultType도 없음 -->
+	<update id="modify">
+<!-- 		update tbl_board set boardName=#{param1}, -->
+<!-- 		boardTitle=#{param2}, boardContent=#{param3} where boardNo=#{param4} -->
+		update tbl_board set boardName=#{param2},
+		boardTitle=#{param3}, boardContent=#{param4} where boardNo=#{param1}
+	</update>
+
+	<update id="delete">
+		delete from tbl_board where boardNo=#{param1}
+	</update>
+
+</mapper>

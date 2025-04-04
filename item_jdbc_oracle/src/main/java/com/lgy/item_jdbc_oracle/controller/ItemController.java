@@ -34,12 +34,9 @@ public class ItemController {
 	@RequestMapping("/content_view")
 	public String content_view(Model model) {
 		log.info("@# content_view()");
-		System.out.println("test Con");
 
 		service = new ItemContentService();
-		System.out.println("test Con");
 		service.execute(model);
-		System.out.println("test Con");
 
 		return "content_view";
 	}

@@ -111,7 +111,7 @@
 
 				
 				
-			<Context docBase="item_mybatis_oracle" path="/item_mybatis_oracle" reloadable="true" source="org.eclipse.jst.jee.server:item_mybatis_oracle"/></Host>
+			<Context docBase="item_mybatis_oracle" path="/item_mybatis_oracle" reloadable="true" source="org.eclipse.jst.jee.server:item_mybatis_oracle"/><Context docBase="Library_Management_pjt" path="/pilotpjt" reloadable="true" source="org.eclipse.jst.jee.server:Library_Management_pjt"/></Host>
 		</Engine>
 	</Service>
 </Server>

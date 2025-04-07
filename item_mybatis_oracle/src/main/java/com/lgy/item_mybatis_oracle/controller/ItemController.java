@@ -10,62 +10,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lgy.item_mybatis_oracle.dao.ItemDAO;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
-@Slf4j
 public class ItemController {
-	/*
-	ItemService service;
-	public JdbcTemplate template;
-	
-	@Autowired
-	public void setTemplate(JdbcTemplate template) {
-		this.template = template;
-		Constant.template = this.template;
-	}
-	*/
-	
-//	servlet-context 에 있는 sqlSession 객체 연결
 	@Autowired
 	private SqlSession sqlSession;
-	
-//	상품 목록 조회
+
+	// 아이템뷰 (값 읽어들임)
 	@RequestMapping("/content_view")
 	public String content_view(Model model) {
-		log.info("@# content_view()");
-		
-//		service=new ItemContentService();
-//		service.execute(model);
-		ItemDAO dao=sqlSession.getMapper(ItemDAO.class);
+		ItemDAO dao = sqlSession.getMapper(ItemDAO.class);
 		model.addAttribute("content_view", dao.list());
-		
 		return "content_view";
 	}
-	
-//	상품 등록
-	@RequestMapping("/write_result")
-	public String write(HttpServletRequest request, Model model) {
-		log.info("@# write_result()");
-		
-//		model.addAttribute("request", request);
-		
-//		service=new ItemWriteService();
-//		service.execute(model);
-		ItemDAO dao=sqlSession.getMapper(ItemDAO.class);
-		dao.write(request.getParameter("name")
-				, request.getParameter("price")
-				, request.getParameter("description"));
-		
-		
-		return "write_result";
-	}
-	
-	@RequestMapping("/write_view")
+
+	// 작성 뷰
+	@RequestMapping("/item_write")
 	public String write_view() {
-		log.info("@# write_view()");
-		
 		return "item_write";
 	}
-	
+
+	//
+	// wrtie 로직
+	@RequestMapping("/write_result")
+	public String write(HttpServletRequest request) {
+		ItemDAO dao = sqlSession.getMapper(ItemDAO.class);
+		String name = request.getParameter("name");
+		String price = request.getParameter("price");
+		String description = request.getParameter("description");
+
+		dao.write(name, price, description);
+
+		return "write_result";
+	}
+
 }
